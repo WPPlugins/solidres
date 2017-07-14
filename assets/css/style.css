@@ -1,0 +1,2493 @@
+/*------------------------------------------------------------------------
+Solidres - Hotel booking plugin for WordPress
+------------------------------------------------------------------------
+@Author    Solidres Team
+@Website   http://www.solidres.com
+@Copyright Copyright (C) 2013 - 2016 Solidres. All Rights Reserved.
+@License   GNU General Public License version 3, or later
+------------------------------------------------------------------------*/
+
+.solidres_coupon {
+    padding: 10px;
+    text-align: center;
+    border: 3px dashed teal;
+    margin: 0 0 15px 0;
+}
+
+input.simple_disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+td.first{
+    vertical-align: top;
+}
+
+.srform_selected{
+	width: 50%;
+}
+
+.srform_datepicker{
+	width: auto !important;
+}
+
+.srform_button{
+	width: auto !important;
+}
+
+span.required{
+	color: #ff0000;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.column-couponcode{
+	text-align: center;
+}
+
+span.couponcode{
+	padding: 2px 5px;
+	background: #3a87ad;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.srtable .column-id{
+	width: 5%;
+}
+
+.srtable .column-name, .srtable .column-codename{
+    width: 20%;
+}
+
+.clr{
+	clear: both;
+}
+
+#sr_panel_right{
+	margin-top: 20px;
+}
+
+#sr_panel_right a{
+	text-decoration: none;
+}
+
+#sr_panel_right a:hover{
+	text-decoration: underline;
+}
+
+.alert-info{
+	padding: 8px 14px;
+	background: #d9edf7;
+	border: 1px solid #bce8f1;
+	margin-bottom: 18px;
+	border-radius: 6px;
+	color: #3a87ad;
+}
+
+.alert-success{
+	padding: 8px 14px;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	color: #468847;
+	margin-bottom: 18px;
+	border-radius: 6px;
+}
+
+span.pending_code{
+	padding: 2px 5px;
+	background: #ff0;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	color: #666;
+	font-weight: bold;
+}
+
+span.checkin_code{
+	padding: 2px 5px;
+	background: #3a87ad;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+span.checkout_code{
+	padding: 2px 5px;
+	background: #333;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+span.closed_code{
+	padding: 2px 5px;
+	background: #999;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+span.canceled_code{
+	padding: 2px 5px;
+	background: #f89406;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+span.confirmed_code{
+	padding: 2px 5px;
+	background: #468847;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+span.trashed_code{
+	padding: 2px 5px;
+	background: #b94a48;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.edit_reservation_table td{
+	padding: 8px;
+}
+
+.reservation_label{
+	background-color: #eee; 
+}
+
+.notify_checkbox input{
+	width: auto !important;
+}
+
+.reservation_note{
+	float: left;
+	width: 50%;
+}
+
+.reservation_note_group{
+	float: left;
+}
+
+.reservation_note_item{
+	padding: 0px 5px;
+	margin: 5px;
+	border-left: 4px solid #ccc;
+}
+
+p.info{
+	font-weight: bold;
+}
+
+.edit_reservation_form tr{
+    border: 5px solid #fff;
+}
+
+.submit_note_btn{
+	margin-top: 10px !important;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.room_extra_info_line{
+    padding: 0.5px !important;
+    background: #808080;
+}
+
+.processing {
+    height: 18px;
+    background: url(../images/ajax-loader2.gif) no-repeat 50% 50%;
+}
+
+.checkin_group, .checkout_group{
+    float: left;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+#form-table input[type=checkbox]{
+    width: auto;
+}
+
+.ui-tabs.ui-tabs-vertical {
+    padding: 0;
+    width: 100%;
+}
+.ui-tabs.ui-tabs-vertical .ui-widget-header {
+    border: none;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav {
+    float: left;
+    /*width: 10em;*/
+    background: #CCC;
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid gray;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li {
+    clear: left;
+    width: 100%;
+    margin: 0.2em 0;
+    border: 1px solid gray;
+    border-width: 1px 0 1px 1px;
+    border-radius: 4px 0 0 4px;
+    overflow: hidden;
+    position: relative;
+    right: -2px;
+    z-index: 2;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li a {
+    display: block;
+    /*width: 100%;*/
+    padding: 0.6em 1em;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li a:hover {
+    cursor: pointer;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    border-right: 1px solid white;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li:last-child {
+    margin-bottom: 10px;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-panel {
+    float: left;
+    width: auto;
+    border-left: 1px solid gray;
+    border-radius: 0;
+    position: relative;
+    left: -1px;
+}
+
+.add_tabs_dynamic{
+    padding: 10px 0px;
+}
+
+a#del_custom_field_group {
+    float: right;
+}
+
+tr.add_new_field{
+    border-bottom: 1px solid;
+}
+
+.gallery_img_wrap{
+    position: relative;
+    float: left;
+}
+
+.gallery_img img{
+    width: 115px;
+    height: 115px;
+    margin: 5px;
+}
+
+.delete_img{
+    display: none;
+    background: url("../images/close_btn.png");
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+}
+
+.gallery_img_wrap:hover>.delete_img{
+    display: block;
+    cursor: pointer;
+}
+
+div.trashed {
+    margin: 5px 0 15px;
+    border-left: 4px solid #ffa500;
+    padding: 1px 12px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.stariff_item{
+    float: left;
+}
+
+.add_new_room{
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+.srform_selected_right{
+    width: auto;
+}
+
+div.error, div.updated {
+    margin: 5px 0px 2px 0px;
+}
+
+.extra_rooms_listview td {
+    vertical-align: top;
+}
+
+.reservation-detail-box table th {
+    vertical-align: top;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.reservation-detail-box table td {
+    padding: 10px;
+}
+
+.sr_table_bordered {
+    border-bottom: 1px solid #ddd;
+}
+
+.room_extra_table th, .room_extra_table td{
+    padding: 3px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.room_extra_table{
+    margin-bottom: 10px !important;
+}
+
+#solidres dl {
+    width: 100%;
+}
+
+#solidres p{
+    margin-bottom: 10px;
+}
+
+.filter-row input,
+.filter-row select {
+    width: 90%;
+}
+
+#sr-tabs {
+    position: relative;
+}
+
+#sr_side_navigation {
+    margin: 0;
+    padding: 0;
+}
+
+#sr_side_navigation li {
+    list-style: none;
+    line-height: 25px;
+    padding: 0;
+    background-color: #fafafa;
+    border: 1px solid #CCC;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 0 0 4px 0;
+}
+
+#sr_side_navigation li a.sr_title {
+    padding: 0 0 0 10px;
+}
+
+#sr_side_navigation li.sr_tools {
+    text-indent: 10px;
+    background-color: #EEE;
+}
+
+#sr_side_navigation li.sr_tools a {
+    margin: 5px 5px 0 0;
+}
+
+#sr_side_navigation li.sr_tools a#sr_current_ver {
+    float: right;
+    width: auto;
+    height: 16px;
+    line-height: 16px;
+    color: #A2A2A2;
+}
+
+#sr_side_navigation li a#sr_dashboard {
+}
+
+#sr_side_navigation li a#sr_expand {
+
+}
+
+#sr_side_navigation li a#sr_collapse {
+
+}
+
+#sr_side_navigation li a.sr_title {
+    display: block;
+    color: #666;
+}
+
+#sr_side_navigation li a.sr_title:link,
+#sr_side_navigation li a.sr_title:visited {
+    color: #333;
+}
+
+#sr_side_navigation li a:hover {
+    text-decoration: none;
+}
+
+#sr_side_navigation li li {
+    border: none;
+}
+
+#sr_side_navigation li.active a.sr_title {
+    background: #146295;
+    color: #FFFFFF;
+}
+
+#sr_side_navigation li ul {
+    margin: 0;
+    padding-left: 0px;
+}
+
+#sr_side_navigation li ul li {
+    line-height: 25px;
+    margin: 0;
+    text-indent: 10px;
+}
+
+#sr_side_navigation li ul li a:link {
+    display: block;
+}
+
+#sr_side_navigation li ul li a:hover {
+    background: #EEE;
+    text-decoration: none;
+}
+
+#sr_side_navigation li ul li.active a {
+    font-weight: bold;
+}
+
+#sr_side_navigation a.sr_indicator {
+    display: block;
+    width: 25px;
+    padding: 0px;
+    float: right;
+    text-indent: -9999px;
+    background: url(../images/arrow_down.png) no-repeat 50% 50%;
+}
+
+a.sr_open {
+    background: url(../images/arrow_down.png) no-repeat 50% 50%;
+}
+
+a.sr_close {
+    background: url(../images/arrow.png) no-repeat 50% 50%;
+}
+
+#mediamanager ul#media_nav {
+    padding: 5px 0 5px 0;
+    margin: 0;
+    width: 100%;
+}
+
+#mediamanager ul#media_nav li {
+    display: inline;
+    padding: 5px 10px 5px 10px;
+    background: #EEE;
+}
+
+#mediamanager ul#media_nav li:hover {
+    background: #EEE;
+}
+
+#media_detail {
+
+    width: 100%;
+}
+
+#media_detail img {
+    float: left;
+    margin: 10px;
+}
+
+#media_info {
+    float: left
+}
+
+#media_info dl {
+    margin: 10px;
+}
+
+#media_info dl dd {
+    margin: 0 0 0 10px;
+}
+
+#medialibrary {
+    margin: 15px 0 0;
+}
+
+.media-container {
+    padding: 0;
+    margin: 0;
+}
+
+.media-container li:hover {
+    border: 1px solid #CCC;
+    background: #EEE;
+}
+
+.media-container li {
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 5px;
+    text-align: left;
+    margin: 0 15px 15px 0;
+    border: 1px solid #EEE;
+    background: #FFF;
+}
+
+.media-container li input {
+    float: left;
+}
+
+.media-container li p {
+    margin: 8px 0 8px 0;
+}
+
+.media-container li img {
+    float: left;
+    margin: 0 10px;
+}
+
+ul#media_actions {
+    padding: 0;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+ul#media_actions li {
+    list-style: none;
+    display: block;
+    float: left;
+}
+
+.reservation_asset_item img {
+    margin: 0px 8px 8px 0px;
+    padding: 2px;
+}
+
+.reservation_asset_item .main-photo img {
+    float: none;
+}
+
+.reservation_asset_item .other-photos img {
+    margin: 0px 4px 4px 0px;
+    padding: 0;
+    float: none;
+}
+
+#main .reservation_asset_item h3 {
+    display: block;
+    margin: 5px 0 5px 0;
+    font-size: 1.6em;
+}
+
+.reservation_asset_item h3,
+.reservation_asset_item h3 a {
+}
+
+#solidres .rating {
+    color: #F7BA0C;
+}
+
+.reservation_asset_item .reservation_asset_subinfo {
+    display: block;
+    font-size: 0.9em;
+    font-style: italic;
+    color: #999;
+    line-height: 20px;
+}
+.reservation_asset_item .reservation_asset_subinfo a:hover{
+    opacity:0.8;
+}
+
+.tariff_starting_from {
+    display: block;
+    float: right;
+}
+
+.searchform label {
+    float: left;
+    display: block;
+    width: 120px;
+}
+
+.searchform select {
+    float: left;
+}
+
+div.room_type_assign {
+    clear: left;
+    overflow: auto;
+    padding: 0 17px;
+}
+
+div.room_type_assign input {
+    float: left;
+}
+
+div.room_type_assign label {
+    clear: none;
+}
+
+div.room_type_assign ul li {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+div.room_type {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #CCC;
+    background: #EEE;
+    margin: 0 0 5px 0;
+}
+
+/* Form element */
+#sr_panel_right button {
+    margin: 0;
+}
+
+#sr_panel_right fieldset {
+    border: none;
+
+}
+.btn-group{
+    z-index: 0;
+}
+#sr_panel_right fieldset.radio label {
+    display: inline;
+}
+.sr-clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.sr-clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .sr-clearfix {
+    display: block;
+}
+
+* html .sr-clearfix {
+    height: 1%;
+}
+
+.sr_hidden {
+    visibility: hidden;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.align-left,
+.sr-align-left,
+.table td.align-left {
+    text-align: left;
+}
+
+.align-right,
+.sr-align-right,
+.table td.align-right {
+    text-align: right !important;
+}
+
+.align-center,
+.sr-align-center,
+.table td.align-center {
+    text-align: center;
+}
+
+button.delete-room-row {
+    float: left;
+}
+
+tr.tier-res {
+    border: 1px solid #FF0000;
+    width: 100%;
+}
+
+fieldset.customfields {
+    border: none;
+}
+
+#sr_panel_right fieldset.panelform {
+    border: none;
+}
+
+#sr_panel_right table.adminlist {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#sr_panel_right table.adminlist thead tr th {
+    text-align: left;
+}
+
+table thead tr.filter-row th {
+    background: #eee;
+    text-align: left;
+    padding: 4px 0 4px 0;
+    vertical-align: top;
+}
+table thead tr.filter-row th input,
+table thead tr.filter-row th select {
+    margin: 0;
+}
+
+#solidres ul.field-list li {
+    list-style: none;
+}
+
+#solidres ul.field-list li label {
+    display: block;
+}
+
+h4.roomtype_name {
+    font-weight: bold;
+}
+
+p.extras-wrapper-line,
+p.coupons-wrapper-line {
+    width: 100%;
+    float: left;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.reservation-details li {
+    list-style: none;
+}
+
+.reservation-details li span{
+    float: right;
+}
+
+.reservation-details li span.label {
+    float: none;
+}
+
+.reservation-details li label,
+.reservation-details dd label {
+    width: 150px;
+    display: inline-block;
+}
+
+.tier-tariff .input-prepend .add-on { width: 24px}
+.tier-tariff .input-prepend {font-size: 11px;}
+
+.input-prepend.prependtop .add-on:first-child, .input-prepend.prependtop .btn:first-child {
+    -webkit-border-radius: 3px 3px 0 0px;
+    -moz-border-radius: 3px 3px 0 0px;
+    border-radius: 3px 3px 0 0px;
+}
+
+.input-prepend.prependtop .add-on {
+    display: block;
+
+    height: 18px;
+    width: 60px;
+    padding: 4px 5px;
+    font-weight: normal;
+    line-height: 18px;
+    text-align: center;
+    text-shadow: 0 1px 0 white;
+    vertical-align: middle;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+}
+
+.input-prepend.prependtop input {
+    -webkit-border-radius: 0 0px 3px 3px;
+    -moz-border-radius: 0 0px 3px 3px;
+    border-radius: 0 0px 3px 3px;
+}
+
+.room-reservation-info,
+.room-extra-info {
+    width: 100%;
+}
+
+.room-reservation-info,
+.room-extra-info {
+    width: 100%;
+}
+.room-reservation-info div,
+.room-extra-info div {
+    float: left;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+h4.room_type_name {
+    border-bottom: 1px solid #CCC;
+    margin: 0 0 10px 0
+}
+
+#solidres .room-reservation-info select,
+#solidres .room-extra-info select {
+    width: 55px;
+}
+
+.room-extra-info .extra-name {
+
+}
+
+.room-reservation-info .room-guest-name {
+
+}
+
+.custom-tariff {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tariff-break-down {
+    width: 100%;
+}
+
+.tariff-break-down tr td {
+    text-align: center;
+}
+.tariff-break-down tr td p {
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+}
+
+#solidres .nodisplay {
+    display: none;
+}
+
+#solidres .processing {
+    height: 18px;
+    background: url(../images/ajax-loader2.gif) no-repeat 50% 50%;
+}
+
+.sr-validate input.error ,
+.sr-validate select.error ,
+.sr-validate textarea.error  {
+    border-color: #B94A48;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.sr-validate input.error ,
+.sr-validate select.error ,
+.sr-validate textarea.error  {
+    color: #B94A48;
+}
+
+.sr-validate label.error  {
+    color: #B94A48;
+}
+
+#solidres .reservation-box span.help-block {
+    display: block;
+    margin-bottom: 9px;
+}
+
+#sr-reservation-form-payment label.error {
+    display: none;
+}
+
+.powered {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.powered a:link,
+.powered a:hover,
+.powered a:visited {
+    color: teal;
+    font-weight: bold;
+}
+
+.info-heading {
+    display: block;
+    font-weight: bold;
+    width: 120px;;
+}
+
+.coupon {
+    border-radius: 5px;
+    border: 1px dashed #FFCC00;
+    background: #FFF4C8;
+    padding: 10px;
+    margin: 0 0 15px 0;
+}
+
+.coupon label {
+    width: 180px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 4px 6px;
+}
+.coupon input {
+    margin-bottom: 0;
+    float: left;
+}
+#solidres .reservation-box .coupon span.help-inline {
+    background: none;
+    display: inline-block;
+    width: 150px;
+}
+
+#solidres .reservation-box span.accepted {
+    color: green;
+}
+
+#solidres .reservation-box span.rejected {
+    color: red;
+}
+
+#inline_map {
+    width: 100%;
+    height: 100%;
+}
+
+#inline_map img {
+    max-width: none;
+}
+.custom-field-row {
+    border-bottom: 1px solid #EEE;
+    padding:  5px 0 5px 0;
+}
+
+div.even {
+    background: #F4F6F7;
+}
+div.odd {
+    background: #EEE;
+}
+
+div.room_type_details .inner {
+    background-color: white;
+    padding: 10px;
+}
+
+.default-tariff.is-applied-coupon,
+.custom-tariff.is-applied-coupon{
+    background-color: #8CC53A;
+    background-image: linear-gradient(143deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
+    border-radius: 3px;
+    color: white;
+    display: block;
+    float: right;
+    font-weight: bold;
+    padding: 5px 10px 5px;
+    position: relative;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 40;
+}
+
+.default-tariff.is-applied-coupon:after,
+.custom-tariff.is-applied-coupon:after{
+    border: 1px dashed white;
+    border-radius: 3px;
+    bottom: 2px;
+    content: "";
+    left: 2px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+.reservation-note-item {
+    border-left: 4px solid #CCC;
+    margin: 5px 5px;
+    padding: 5px;
+}
+
+.reservation-note-item .info {
+    font-weight: bold;
+}
+.reservation-code a:link,
+.reservation-code a:visited {
+    color: white;
+}
+
+.reservation-date-filter label {
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+}
+
+.reservation-detail-box h3 {
+    background: #EEE;
+    color: black;
+    text-indent: 15px;
+    margin-top: 0;
+    border-radius: 2px;
+    line-height: 27px;
+    border: 1px solid #CCC;
+}
+#roomtype .jqplot-target{
+    position: relative;
+    color: #666666;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+#booking .jqplot-highlighter-tooltip{
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    background: rgba(208,208,208,0.5);
+    padding: 1px;
+}
+#revenue .jqplot-highlighter-tooltip{
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    background: rgba(208,208,208,0.5);
+    padding: 1px;
+}
+#booking .jqplot-cursor-tooltip{
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    background: rgba(208,208,208,0.5);
+    padding: 1px;
+}
+#revenue .jqplot-cursor-tooltip{
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    background: rgba(208,208,208,0.5);
+    padding: 1px;
+}
+.jqplot-legend{
+    left: 40px;
+    margin-top: -44px;
+    height: 22px;
+    font-size: 18px;
+}
+tr.jqplot-cursor-legend{
+    background: rgba(208,208,208,0.5);
+
+}
+
+.date-toggle{
+    text-align: left;
+    width: auto;
+    float: right;
+    line-height: 30px;
+}
+.date-toggle a{
+    display: inline;
+
+}
+.date-toggle .date-customtab{
+    width: 300px;
+    padding: 5px;
+    right: 0;
+    top: 30px;
+    display: none;
+    /*visibility: visible;*/
+    border: 1px solid #b0b2b6;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 3px #8e949c;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    text-align: left;
+}
+
+.date-toggle .date-customtab hr{
+    margin: 0 0 4px 0;
+}
+
+.date-toggle .date-customtab .disabledInputFrom,
+.date-toggle .date-customtab .disabledInputTo{
+    width: 100px;
+    height: 12px;
+    margin-bottom: 0;
+}
+.date-toggle .date-customtab .customFrom,
+.date-toggle .date-customtab .customTo{
+    margin-top: 9px ;
+    padding: 0 0 0 4px;
+    width: 80px;
+    background-color: yellow;
+
+}
+.chartNotice{
+    background-color: white;
+    color:  #000;
+    height: 150px;
+    width: 100%;
+    border: 1px dashed #b0b2b6;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+}
+.chartNotice h3{
+    line-height: 120px;
+    color: #ccc;
+}
+.statistics-box {
+    background: #306772;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    color: #FFF;
+}
+
+.statistics-box h3 {
+}
+.statistics-box h4 {
+}
+
+.statistics-box.dark i {
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 72px;
+    font-size: 72px;
+    text-shadow: none;
+    color: #19545F;
+}
+
+.statistics-box.light i {
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: -30px;
+    display: block;
+    height: 72px;
+    width: auto;
+    font-size: 72px;
+    text-shadow: none;
+    color: #19545F;
+}
+
+.scope-selection i {
+    font-size: 18px;
+    width: auto; /* for backend compatible */
+    height: auto; /* for backend compatible */
+}
+
+.scope-selection h3 {
+    margin: 0;
+}
+
+li.media-sortable-placeholder {
+    border: 2px dashed #CCC;
+    padding: 5px;
+    height: 75px;
+}
+
+/* Availability Calendar */
+
+div.availability-calendar table{
+    margin-top: 5px;
+}
+
+div.availability-calendar table tr th {
+    border-top: none;
+    border-bottom: 2px solid #CCC;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+div.availability-calendar table tr td {
+    padding: 0;
+    width: 25px;
+    height: 25px;
+}
+
+div.availability-calendar table tr td span.today {
+    font-weight: bold;
+}
+
+div.availability-calendar table.btype-0 tr td.busy.ci a {
+    background: linear-gradient(133deg, transparent 48%, rgb(255, 0, 0) 50%);
+}
+
+div.availability-calendar table.btype-1 tr td.busy.ci a {
+    background: red;
+}
+
+div.availability-calendar table tr td.co a {
+    background: linear-gradient(-45deg, transparent 48%, rgb(255, 0, 0) 50%); width: 100%; height: 100%;
+}
+
+div.availability-calendar table tr td.busy.ci.co {
+    background: red;
+}
+
+div.availability-calendar table tr td a {
+    color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 25px;
+}
+
+div.availability-calendar table tr td.past a {
+    color: #CCC;
+}
+
+div.availability-calendar table tr td.busy a {
+    background: red;
+}
+
+
+div.availability-calendar table tr.row-week-day {
+    background: #CCC;
+}
+
+div.availability-calendar table tr.row-month-day {
+    border-bottom: 1px solid #EEE;
+}
+
+.availability-calendar {
+    text-align: center;
+}
+
+.availability-calendar table {
+    margin: 0 auto;
+}
+
+#sr-availability-form .btn-top {
+    margin: 0 0 10px 0;
+}
+
+#sr-availability-form .btn-bottom {
+    margin: 10px 0 0 0;
+}
+
+span.legend-busy {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: red;
+}
+
+#solidres .inner {
+    margin: 10px;
+}
+
+@media (min-width: 1200px) {
+    #solidres .default-tariff .span2 {
+        width: 9%;
+        margin-left: 2px;
+    }
+
+    #solidres .complex-tariff-detail.span2 {
+        width: 8%;
+        margin-left: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    #solidres .default-tariff .span2 {
+        margin-left: 2px;
+    }
+
+    #solidres .complex-tariff-detail.span2 {
+        margin-left: 2px;
+    }
+    .tariff-heading-wide {
+        display: block;
+    }
+    .tariff-heading-narrow {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .tariff-heading-wide {
+        display: none;
+    }
+    .tariff-heading-narrow {
+        float: left;
+        width: 100px;
+    }
+
+    .tariff-desc {
+        padding-left: 103px;
+    }
+}
+
+.tariff-heading-wide p {
+    margin: 0 0 0 10px;
+    font-weight: bold;
+}
+
+#solidres .tariff-row {
+    border-bottom: 1px dashed #CCC;
+    padding-bottom: 10px;
+}
+
+#solidres .tariff-row.tariff-row-first {
+    border-top: 1px solid teal;
+}
+
+#solidres .tariff-row p {
+    margin: 10px 10px 10px 10px;
+}
+
+#solidres .tariff-heading-narrow {
+    margin-bottom: 0;
+}
+
+#solidres .tariff-details-row fieldset {
+    margin: 15px;
+}
+#solidres .tariff-details-row fieldset legend {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid #EEE;
+    line-height: 28px;
+}
+
+.tariff-row-cell {
+    display: inline-block;
+}
+
+.tariff-wrapper {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+.tariff-btn-bottom {
+    margin-top: 10px;
+}
+
+#loading { position: absolute; left: 0px; top: 0px; display: none; background: gold; padding: 0.3em; font-weight: bold; }
+
+.reservation-form, .reservation-tab-current {background: #EEE}
+
+.reservation-tab-row p {
+    margin: 10px;
+}
+
+.reservation-single-step-holder {
+    background: #f5f5f5;
+}
+
+.wp-admin .reservation-single-step-holder {
+    background: #FFF;
+    padding: 10px;
+}
+
+.reservation-tab-row {
+    margin-bottom: 10px;
+}
+
+.reservation-tab-row p {
+    margin: 10px;
+}
+
+.reservation-tab {
+    border-radius: 5px 5px 0 0;
+}
+
+.reservation-tab p {
+    text-shadow: 2px 2px 2px #FFF;
+    font-weight: bold;
+}
+
+.button-row {
+    background: #f5f5f5;
+
+}
+
+.button-row.button-row-top {
+    border-bottom: 1px solid #d4d4d4
+}
+
+.button-row.button-row-bottom {
+    border-top: 1px solid #d4d4d4;
+}
+
+.wizard {
+    background-color: #f9f9f9;
+    border: 1px solid #d4d4d4;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    *zoom: 1;
+    /*-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);*/
+}
+
+.wizard:before,
+.wizard:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.wizard:after {
+    clear: both;
+}
+
+.wizard ul {
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+}
+
+.wizard ul li {
+    position: relative;
+    height: 46px;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 46px;
+    color: #999999;
+    cursor: default;
+}
+
+.wizard ul li.resevation-tab-confirmation {
+    width: 29%;
+}
+
+.wizard ul li .chevron {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    border: 24px solid transparent;
+    border-right: 0;
+    border-left: 14px solid #d4d4d4;
+}
+
+.bs2 .wizard ul li .chevron {
+    right: -14px;
+}
+
+@media (max-width: 991px){
+    .bs3 .wizard ul li .chevron {
+        right: -14px;
+    }
+}
+
+.wizard ul li .chevron:before {
+    position: absolute;
+    top: -24px;
+    right: 1px;
+    display: block;
+    border: 24px solid transparent;
+    border-right: 0;
+    border-left: 14px solid #f9f9f9;
+    content: "";
+}
+
+.wizard ul li.complete {
+    color: #468847;
+}
+
+.wizard ul li.complete:hover {
+    cursor: pointer;
+    /*background: #e7eff8;*/
+}
+
+.wizard ul li.complete:hover .chevron:before {
+    /*border-left: 14px solid #e7eff8;*/
+}
+
+.wizard ul li.complete .chevron:before {
+}
+
+.wizard ul li.active {
+    color: #3a87ad;
+}
+
+.wizard ul li.active .chevron:before {
+}
+
+.wizard ul li .badge {
+    margin-right: 8px;
+}
+
+.wizard ul li:nth-child(1) {
+    z-index: 10;
+    padding-left: 10px;
+    border-radius: 4px 0 0 4px;
+}
+
+.wizard ul li:nth-child(2) {
+    z-index: 9;
+}
+
+.wizard ul li:nth-child(3) {
+    z-index: 8;
+}
+
+.wizard ul li:nth-child(4) {
+    z-index: 7;
+}
+
+.wizard ul li:nth-child(5) {
+    z-index: 6;
+}
+
+.wizard ul li:nth-child(6) {
+    z-index: 5;
+}
+
+.wizard ul li:nth-child(7) {
+    z-index: 4;
+}
+
+.wizard ul li:nth-child(8) {
+    z-index: 3;
+}
+
+.wizard ul li:nth-child(9) {
+    z-index: 2;
+}
+
+.wizard ul li:nth-child(10) {
+    z-index: 1;
+}
+
+.wizard .actions {
+    float: right;
+    padding-right: 15px;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.wizard .actions a {
+    margin-right: 8px;
+    font-size: 12px;
+    line-height: 45px;
+}
+
+.wizard .actions .btn-prev i {
+    margin-right: 5px;
+}
+
+.wizard .actions .btn-next i {
+    margin-left: 5px;
+}
+
+.fuelux .step-content .step-pane {
+    display: none;
+}
+
+.fuelux .step-content .active {
+    display: block;
+}
+
+.reservation-single-step-holder img {
+    float: left;
+}
+
+#ui-datepicker-div {
+    z-index: 999999 !important;
+}
+
+.tariff-general-info {
+    background: #EEE;
+}
+
+#solidres .popover {
+    max-width: 630px !important;
+}
+
+#solidres .label-confirmed {
+    background-color: #136377;
+}
+#solidres .label-pending {
+    background-color: #ffff00;
+    border: 1px solid #CCC;
+    color: #666
+}
+
+#solidres .label-pending.reservation-code a:link,
+#solidres .label-pending.reservation-code a:visited {
+    color: #666
+}
+
+#solidres .payment_method_cielo_details {
+    background: #ddd;
+    padding: 15px;
+    border: 1px solid #CCC;
+}
+
+.reservation-details li label {
+    background: #EEE;
+    line-height: 22px;
+    text-indent: 10px;
+}
+
+.reservation-details {
+    margin-left: 0;
+}
+
+table.system-table tr td {
+    width: 50%;
+}
+
+/* Some overrides for Protostar bootstrap */
+#solidres .container {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.tariff-break-down span {
+    font-weight: bold;
+    display: block;
+    margin-right: 10px;
+}
+
+.tariff-break-down span.gross,
+.tariff-break-down span.tax {
+    font-weight: normal;
+    margin: 0;
+}
+
+.tariff-break-down td {
+    padding: 10px;
+}
+
+.solidres-module-filter ul {
+    margin: 0;
+}
+
+.solidres-module-filter ul li {
+    list-style: none;
+}
+
+.room .radio,
+.room .tariff_detail {
+    padding: 5px;
+
+}
+
+.room .tariff_radio:hover {
+    outline: 1px solid #ccc;
+}
+
+.room .tariff_radio input[type="radio"] {
+    margin-left: 0;
+}
+
+.room .tariff_detail {
+    margin-left: -2.127659574%;
+}
+
+.tariff_radio.checked {
+    border: 1px solid #CCC;
+}
+.room .tariff_detail {
+    border: 1px solid #CCC;
+}
+
+.trigger_checkinoutform {
+    width: 100%;
+}
+
+.tariff_details_holder {
+    margin: 10px;
+    text-align: right;
+}
+
+.tariff_details_holder .tariff_val {
+    font-weight: bold;
+    color: green;
+    display: block;
+}
+
+#solidres .tariff_details_holder .roomtype-quantity-selection {
+    border: 1px solid green;
+    width: 60%;
+}
+
+.tariff-selection {
+    padding: 10px;
+}
+
+#solidres .availability-search-form {
+    margin-bottom: 0;
+}
+
+.room_index_form_heading {
+    border-bottom: 1px solid #CCC;
+}
+
+.room_index_form_heading {
+
+}
+
+#sr-checkavailability-form-component,
+#availability-search .availability-search-info {
+    margin: 0;
+}
+
+.room-form {
+    margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+    #solidres .room-form input[class*="span"],
+    #solidres .room-form select[class*="span"]{
+        width: 49%;
+    }
+    #solidres .room-form label.checkbox select[class*="span"]{
+        width: 20%;
+    }
+
+    #solidres .room-form .extras_row_roomtypeform select,
+    #solidres .guestinfo select[class*="guest_extra"]{
+        width: 15%;
+    }
+}
+
+.availability-calendar .past {
+    color: #CCC;
+}
+
+#chart1, #chart2, #chart3 {
+    width: 100%;
+}
+
+.statistics-chart-area {
+    margin-bottom: 25px;
+}
+
+.payment_method_list li {
+    line-height: 22px;
+}
+
+.tariff-box {
+    padding: 10px;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-left: 3px solid teal;
+    margin: 0 0 10px 0;
+    background: #FAFAFA;
+}
+
+.num_rooms_available_msg {
+    color: red;
+}
+
+div.roomtype_desc {
+
+}
+
+.sr-reservation-form .carousel img {
+    float: none
+}
+
+.sr-reservation-form .carousel .item {
+    text-align: center;
+}
+
+.sr-reservation-form .carousel .item img {
+    margin: 0 auto;
+}
+
+.more_desc {
+    margin: 20px 0 0 0;
+}
+
+.tariff-box p {
+    margin-bottom: 0
+}
+
+.starting_from,
+.min_tariff,
+.tariff_suffix {
+    display: block;
+}
+
+.min_tariff {
+    color: green;
+    font-size: 18px;
+}
+
+.disabledCalendar {
+    opacity: .6;
+}
+
+.datefield {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    /*height: 18px;*/
+    padding: 4px 6px;
+    margin-bottom: 9px;
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+    background: white;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    color: #555;
+}
+
+#availability-search .alert {
+    border-radius: 0;
+}
+
+.asset-row .carousel-control,
+.room .carousel-control{
+    position: absolute;
+    top: 52%;
+    left: 15px;
+    width: 31px;
+    height: 31px;
+    margin-top: -20px;
+    font-size: 45px;
+    font-weight: 100;
+    line-height: 18px;
+    color: #fff;
+    text-align: center;
+    background: #222;
+    border: 3px solid #fff;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 23px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.stuffbox h3{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sr_logo{
+    text-align: right;
+    margin: 15px 0px;
+}
+
+span.sr_enable, span.sr_disable, span.sr_warning {
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 5px;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+span.sr_enable{
+    background: #468847;
+}
+
+span.sr_disable {
+    background: #b94a48;
+}
+
+span.sr_warning {
+    background: #f89406;
+}
+
+
+.table_sr_system th, .table_sr_system td {
+    padding: 5px;
+}
+
+.table_sr_system th, .table_sr_system tr {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.table_sr_system tr:last-child{
+    border-bottom: none;
+}
+
+.availability_form input[type='text']{
+    margin-top: 10px;
+    width: 100% !important;
+    text-align: center;
+}
+
+.availability_form_btn{
+    text-align: center;
+}
+
+.availability_form_btn button{
+    margin: 0px 5px;
+}
+
+#user_dashboard_tabs .tab-content{
+    overflow: hidden;
+}
+
+.reservation-row .column-checkin, .reservation-row .column-checkout, .reservation-row .column-logo{
+    text-align: center;
+}
+
+.reservation-row th.column-checkin a span, .reservation-row th.column-checkout a span, .reservation-row th.column-logo a span{
+    float: none;
+}
+
+.reservation-row th.column-checkin a span.sorting-indicator, .reservation-row th.column-checkout a span.sorting-indicator, .reservation-row th.column-logo a span.sorting-indicator{
+    float: right;
+}
+
+.reservation-row {
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.reservation-row .inner {
+    margin: 10px;
+}
+
+.reservation-row .inner-skip-left {
+    margin: 10px 10px 10px 0;
+}
+
+.reservation-row .inner-skip-right {
+    margin: 10px 0px 10px 10px;
+}
+
+.reservation-row .dayt,
+.reservation-row .dayn,
+.reservation-row .montht,
+.reservation-row .yearn {
+    display: block;
+}
+
+.reservation-row .dayn {
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.reservation-row .checkinout {
+    text-align: center;
+}
+
+.reservation-row h3 i {
+    font-size: 12px;
+    color: #FBB818;
+}
+
+#solidrestoolbar .btn-wrapper {
+    display: inline-block;
+    margin: 0 0 5px 5px;
+}
+
+.extra_details span {
+    display: block;
+}
+
+.extra_details {
+    padding: 10px;
+    border: 1px solid #E7E7E7;
+    margin-bottom: 10px;
+    clear: left;
+    background: #F4F4F4;
+    display: block;
+}
+
+.extra_details img {
+    float: none;
+}
+
+.breakdown {
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    background: #f4f4f4;
+    display: block;
+    font-size: 11px;
+}
+
+@media (max-width: 767px) {
+    #solidres .breakdown-row .span2 {
+        width: 49%;
+        float: left;
+    }
+
+    #solidres .breakdown-row .span2 span {
+        display: block;
+    }
+
+    #solidres .breakdown-row .span2 p,
+    #solidres .breakdown-row .span2 span {
+        text-align: center;
+    }
+}
+
+#solidres .breakdown-row .span2 span {
+    display: block;
+    font-weight: normal;
+}
+
+.sr-strikethrough {
+    text-decoration: line-through;
+}
+
+.tariff-box {
+    -webkit-transition: background-color 3000ms linear;
+    -moz-transition: background-color 3000ms linear;
+    -o-transition: background-color 3000ms linear;
+    -ms-transition: background-color 3000ms linear;
+    transition: background-color 3000ms linear;
+}
+
+.toggle_breakdown:link,
+.toggle_extra_details:link,
+.toggle_room_confirmation:link {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+}
+
+.toggle_breakdown:hover,
+.toggle_extra_details:hover {
+    cursor: help;
+    text-decoration: none;
+}
+
+#reservation-confirmation-box .table tr.nobordered.first td {
+    border-top: 1px solid #ddd;
+}
+
+#reservation-confirmation-box .table tr.nobordered td {
+    border-top: none;
+}
+
+#reservation-confirmation-box .table tr.nobordered td.noleftborder {
+    border-left: none;
+}
+
+.toggle_extracost_confirmation:link {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+    color: inherit;
+}
+
+.toggle_extracost_confirmation:hover {
+    cursor: help;
+    text-decoration: none;
+}
+
+#cancel_reservation_form{
+    margin-top: -5px;
+}
+
+span.reservation_status_user {
+    float: left;
+    margin-right: 15px;
+}
+
+.twentyfourteen .tfsr {
+	padding: 12px 10px 0;
+	max-width: 474px;
+	margin: 0 auto
+}
+
+.twentyfourteen .tfsr .product .entry-summary {
+	padding: 0 !important;
+	margin: 0 0 1.618em !important
+}
+
+.twentyfourteen .tfsr div.product.hentry.has-post-thumbnail {
+	margin-top: 0
+}
+
+.twentyfourteen .tfsr .product .images img {
+	margin-bottom: 1em
+}
+
+@media screen and (min-width: 673px) {
+	.twentyfourteen .tfsr {
+		padding-right: 30px;
+		padding-left: 30px
+	}
+}
+
+@media screen and (min-width: 1040px) {
+	.twentyfourteen .tfsr {
+		padding-right: 15px;
+		padding-left: 15px
+	}
+}
+
+@media screen and (min-width: 1110px) {
+	.twentyfourteen .tfsr {
+		padding-right: 30px;
+		padding-left: 30px
+	}
+}
+
+@media screen and (min-width: 1218px) {
+	.twentyfourteen .tfsr {
+		margin-right: 54px
+	}
+
+	.full-width .twentyfourteen .tfsr {
+		margin-right: auto
+	}
+}
+
+.twentyfifteen .t15sr {
+	padding-left: 7.6923%;
+	padding-right: 7.6923%;
+	padding-top: 7.6923%;
+	margin-bottom: 7.6923%;
+	background: #fff;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .15)
+}
+
+.twentyfifteen .t15sr .page-title {
+	margin-left: 0
+}
+
+@media screen and (min-width: 38.75em) {
+	.twentyfifteen .t15sr {
+		margin-right: 7.6923%;
+		margin-left: 7.6923%;
+		margin-top: 8.3333%
+	}
+}
+
+@media screen and (min-width: 59.6875em) {
+	.twentyfifteen .t15sr {
+		margin-left: 8.3333%;
+		margin-right: 8.3333%;
+		padding: 10%
+	}
+
+	.single-product .twentyfifteen .entry-summary {
+		padding: 0 !important
+	}
+}
+
+.srform_coupon_id a, .srform_extra_id a{
+    text-decoration: none !important;
+}
+
+.map_canvas {
+    width: 100%;
+    height: 400px;
+    margin: 10px 20px 10px 0;
+}
+
+#solidres .payment_method_cielo_details, #solidres .payment_method_details {
+    background: #ddd;
+    padding: 15px;
+    border: 1px solid #CCC;
+    margin-top: 10px;
+}
+
+.payment_method_list li {
+    line-height: 22px;
+}
+
+#solidres ul {
+    padding-left: 0;
+}
+
+.starting_from,
+.min_tariff,
+.normal_tariff,
+.tariff_suffix {
+    display: block;
+}
+
+.min_tariff,
+.normal_tariff{
+    color: green;
+    font-size: 18px;
+}
+
+@font-face {
+    font-family: 'Solidres';
+    src: url('../fonts/solidres.eot');
+    src: url('../fonts/solidres.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/solidres.woff') format('woff'),
+    url('../fonts/solidres.ttf') format('truetype'),
+    url('../fonts/solidres.svg#solidres') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#adminmenu #toplevel_page_sr-assets .menu-icon-generic div.wp-menu-image:before {
+    font-family: Solidres!important;
+    content: "\e000";
+    font-size: 1.3em!important;
+}
+
+.solidres-default-asset.dashicons, .solidres-default-asset.dashicons-before:before {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.reservations .active td, .reservations .active th {
+    background-color: #D4E0E4;
+}
+
+.datepicker_inline {
+    display: block;
+    position: absolute;
+    z-index: 1100;
+}
+
+.datefield i {
+    margin-top: 3px;
+    float: right;
+}
+
+#solidres input.warning,
+#solidres select.warning {
+    border-color: #c09853;
+}
+
+#asset-checkavailability-form {
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+}
+
+#asset_custom_fields a:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/*#srform select {
+    width: 100%;
+}*/
+
+#sr-reservation-form-room .room_selection_wrapper {
+    background: #fafafa;
+    padding: 10px 15px;
+    border: 1px solid #dfdfdf;
+    width: auto;
+}
+.room_selection_wrapper dd {
+    margin-left: 0;
+}
+
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+tr:first-child td {
+    border-top: 0;
+}
+
+.table-bordered th, .table-bordered td {
+    border-left: 1px solid #ddd;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+    border-collapse: separate;
+    border-left: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.table-bordered thead:first-child tr:first-child > th:last-child,
+.table-bordered tbody:first-child tr:first-child > td:last-child,
+.table-bordered tbody:first-child tr:first-child > th:last-child {
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child,
+.table-bordered tbody:first-child tr:first-child > td:first-child,
+.table-bordered tbody:first-child tr:first-child > th:first-child {
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 18px;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table th, .table td {
+    padding: 8px;
+    line-height: 18px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.room_selection_wrapper label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reservation-single-step-holder.guestinfo.backend label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+.reservation-details label {
+    background: #EEE;
+    line-height: 25px;
+    text-indent: 10px;
+    display: block;
+}
+
+.reservation-details .sr_row div.columns {
+    line-height: 25px;
+}
+
+.wp-admin .extras_row_roomtypeform {
+    line-height: 28px;
+}
+
+#poststuff .postbox .inside.nopadding {
+    margin: 0;
+    padding: 0
+}
+
+.tariff-title-desc {
+    text-align: left;
+}
+
+.tariff-value {
+    text-align: right;
+}
+
+@media (max-width: 767px){
+    .sr-wish-list {
+        text-align: left;
+    }
+
+    .sr-wish-list > a,
+    .sr-wish-list > a:hover,
+    .sr-wish-list > a:focus {
+        margin-top: 0px;
+    }
+
+    .tariff-title-desc {
+        text-align: center;
+    }
+
+    .tariff-value {
+        text-align: center;
+    }
+}
+
+.reservation_asset_item .social_network {
+    margin-bottom: 5px;
+}
+
+.reservation_asset_item .social_network i {
+    font-size: 20px;
+}
+
+.reservation_asset_item .social_network a:hover {
+    text-decoration: none;
+}
+
+.reservation-code a:link,
+.reservation-code a:visited {
+    color: white;
+}
+
+.reservations .pending_code.reservation-code a:link,
+.reservations .pending_code.reservation-code a:visited {
+    color: #666
+}
+
+.system-page-title {
+    line-height: 28px;
+}
+
+.system-page-title span {
+    margin-top: 3px;
+}
+
+.payment_method_list input[type="radio"],
+.payment_method_list input[type="checkbox"] {
+    margin: 0;
+}
+
+.payment_method_radio {
+    vertical-align: middle;
+}
+
+.system-table .new-update a:link,
+.system-table .new-update a:hover,
+.system-table .new-update a:visited {
+    color: red;
+}
+
+.label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.label, .badge {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 10.998px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #fff;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    background-color: #999;
+}
+
+.label-warning, .badge-warning {
+    background-color: #f89406;
+}
+
+.label-success, .badge-success {
+    background-color: #468847;
+}
+
+#check_update_form {
+    display: inline;
+}
